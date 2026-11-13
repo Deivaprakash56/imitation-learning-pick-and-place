@@ -16,7 +16,7 @@ The pipeline is built and tested twice:
 the block to the red target in mid-air.*
 
 
-> Part of my Physical AI project set: [lang_nav](https://github.com/Deivaprakash56/lang_nav) (Language-guided navigation) · [rl_nav](https://github.com/Deivaprakash56/rl_nav) (RL navigation benchmarked against Nav2).
+> Part of my Physical AI project set: [lang_nav](https://github.com/Deivaprakash56/-vlm-language-navigation-ros2) (Language-guided navigation) · [rl_nav](https://github.com/Deivaprakash56/rl_nav) (RL navigation benchmarked against Nav2).
 > Everything here runs in simulation. The ROS 2 interfaces are the same ones a real robot uses.
 
 ## Quick start
