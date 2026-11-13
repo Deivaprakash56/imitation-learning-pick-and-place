@@ -24,7 +24,7 @@ the block to the red target in mid-air.*
 Requirements: Ubuntu 22.04, ROS 2 Humble, Python 3.10.
 
 ```bash
-git clone https://github.com/Deivaprakash56/il_arm.git ~/il_arm && cd ~/il_arm
+git clone https://github.com/Deivaprakash56/imitation-learning-pick-and-place.git ~/il_arm && cd ~/il_arm
 python3 -m venv --system-site-packages .venv && touch .venv/COLCON_IGNORE
 .venv/bin/pip install torch --index-url https://download.pytorch.org/whl/cpu
 .venv/bin/pip install "numpy<2" gymnasium gymnasium-robotics "mujoco==3.3.2" h5py matplotlib imageio
