@@ -1,0 +1,19 @@
+digraph G {
+  rankdir=LR; pad=0.3; nodesep=0.3; ranksep=0.45;
+  node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10.5, color="#555555", fillcolor="#f4f4f4"];
+  edge [fontname="Helvetica", fontsize=9, color="#555555"];
+  subgraph cluster_sim { label="Simulation (MuJoCo FetchPickAndPlace)"; fontname="Helvetica"; style="rounded,dashed"; color="#999999";
+    expert [label="Scripted expert\napproach → descend → grasp → carry", fillcolor="#fff6d5"];
+    dart   [label="DART noise\nexecute a + ε, record clean a", fillcolor="#fde2e2"];
+  }
+  subgraph cluster_real { label="Real arm (ROS 2)"; fontname="Helvetica"; style="rounded,dashed"; color="#999999";
+    teleop [label="Teleop\n(leader arm / SpaceMouse)", fillcolor="#fff6d5"];
+    rec    [label="demo_recorder\n/joint_states + command + camera", fillcolor="#d9f2d9"];
+    teleop -> rec;
+  }
+  h5    [label="HDF5 demos\n(robomimic layout)\ndata/demo_i/obs/*, actions", shape=cylinder, fillcolor="#fff6d5"];
+  bc    [label="Behaviour cloning\nMLP 3×512 + LayerNorm\npredicts next 5 actions (chunk)", fillcolor="#e3f0ff"];
+  exe   [label="ChunkExecutor\ntemporal ensembling\nof overlapping chunks", fillcolor="#e8e0f8"];
+  evalp [label="eval_policy\nsuccess over 100\nheld-out seeds", fillcolor="#f4f4f4"];
+  expert -> dart -> h5; rec -> h5; h5 -> bc -> exe -> evalp;
+}
